@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Градієнт - Салон краси преміум класу</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Added Lucide icons CDN for consistent icon display -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header" style="">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                    <!-- Replaced text logo with beautiful GR logo -->
+                    <button class="gr-logo" onclick="location.reload()">
+                        <div class="gr-logo-container">
+                            <span class="gr-text">GR</span>
+                            <div class="gr-underline"></div>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- Reverted navigation to horizontal layout like version 6 -->
+                <nav class="nav desktop-nav">
+                    <a href="#services" data-translate="services">Послуги</a>
+                    <a href="#about" data-translate="about">Про нас</a>
+                    <a href="#testimonials" data-translate="testimonials">Відгуки</a>
+                    <a href="#faq" data-translate="faq">FAQ</a>
+                    <a href="#contact" data-translate="contact">Контакти</a>
+                </nav>
+                
+                <div class="header-right">
+                    <!-- Added language switcher -->
+                    <div class="language-switcher">
+                        <button class="lang-btn" id="langBtn">
+                            <!-- Replaced emoji with SVG icon -->
+                            <i data-lucide="globe" class="globe-icon"></i>
+                            <span class="current-lang">UK</span>
+                        </button>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <button onclick="switchLanguage('uk')" class="lang-option active" data-lang="uk">Українська</button>
+                            <button onclick="switchLanguage('ru')" class="lang-option" data-lang="ru">Русский</button>
+                            <button onclick="switchLanguage('en')" class="lang-option" data-lang="en">English</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary desktop-only" onclick="openBookingModal()" data-translate="bookNow">Записатися</button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="#services" onclick="closeMobileMenu()" data-translate="services">Послуги</a>
+                <a href="#about" onclick="closeMobileMenu()" data-translate="about">Про нас</a>
+                <a href="#testimonials" onclick="closeMobileMenu()" data-translate="testimonials">Відгуки</a>
+                <a href="#faq" onclick="closeMobileMenu()" data-translate="faq">FAQ</a>
+                <a href="#contact" onclick="closeMobileMenu()" data-translate="contact">Контакти</a>
+                <button class="btn btn-primary" onclick="openBookingModal(); closeMobileMenu()" data-translate="bookNow">Записатися</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-translate="heroTitle">Градієнт</h1>
+                <p class="hero-subtitle" data-translate="heroSubtitle">Салон краси преміум класу</p>
+                <button class="btn btn-primary btn-large" onclick="openBookingModal()" data-translate="bookProcedure">
+                    Записатися на процедуру
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="ourServices">Наші послуги</h2>
+                <p data-translate="servicesSubtitle">Ексклюзивні процедури краси та здоров'я в атмосфері розкоші та комфорту</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=300&fit=crop" alt="Люкс SPA Ритуали">
+                        <div class="service-duration">3-4 години</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Люкс SPA Ритуали</h3>
+                        <p>Ексклюзивні багатоступеневі процедури з використанням золота та дорогоцінних олій</p>
+                        <div class="service-footer">
+                            <span class="price">від 25 000 ₴</span>
+                            <button class="btn btn-primary btn-small" onclick="openServiceModal(0)" data-translate="moreDetails">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" alt="Преміум Косметологія">
+                        <div class="service-duration">2-3 години</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Преміум Косметологія</h3>
+                        <p>Інноваційні anti-age процедури із застосуванням швейцарських технологій</p>
+                        <div class="service-footer">
+                            <span class="price">від 18 000 ₴</span>
+                            <button class="btn btn-primary btn-small" onclick="openServiceModal(1)" data-translate="moreDetails">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=300&fit=crop" alt="Авторський Масаж">
+                        <div class="service-duration">1.5-2 години</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Авторський Масаж</h3>
+                        <p>Унікальні техніки релаксації та відновлення від провідних майстрів</p>
+                        <div class="service-footer">
+                            <span class="price">від 12 000 ₴</span>
+                            <button class="btn btn-primary btn-small" onclick="openServiceModal(2)" data-translate="moreDetails">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop" alt="Елітний Hair-стайлінг">
+                        <div class="service-duration">2-4 години</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Елітний Hair-стайлінг</h3>
+                        <p>Персональні програми догляду та стайлінгу від топ-стилістів</p>
+                        <div class="service-footer">
+                            <span class="price">від 20 000 ₴</span>
+                            <button class="btn btn-primary btn-small" onclick="openServiceModal(3)" data-translate="moreDetails">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&h=300&fit=crop" alt="Nail Art Преміум">
+                        <div class="service-duration">2-3 години</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Nail Art Преміум</h3>
+                        <p>Ексклюзивний манікюр та педикюр з використанням кристалів Swarovski</p>
+                        <div class="service-footer">
+                            <span class="price">від 8 000 ₴</span>
+                            <button class="btn btn-primary btn-small" onclick="openServiceModal(4)" data-translate="moreDetails">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=300&fit=crop" alt="Брови & Вії VIP">
+                        <div class="service-duration">1-2 години</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Брови & Вії VIP</h3>
+                        <p>Професійне моделювання та фарбування преміум складами</p>
+                        <div class="service-footer">
+                            <span class="price">від 6 000 ₴</span>
+                            <button class="btn btn-primary btn-small" onclick="openServiceModal(5)" data-translate="moreDetails">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 data-translate="aboutSalon">Про салон Градієнт</h2>
+                    <p data-translate="aboutText1">Понад 15 років ми створюємо неповторну атмосферу розкоші та професіоналізму. Наш салон - це місце, де традиції краси зустрічаються з інноваційними технологіями.</p>
+                    <p data-translate="aboutText2">Команда висококваліфікованих майстрів використовує лише преміальну косметику та сучасне обладнання, щоб подарувати вам незабутні відчуття та чудовий результат.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label" data-translate="yearsExp">років досвіду</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label" data-translate="masters">майстрів</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10k+</div>
+                            <div class="stat-label" data-translate="clients">задоволених клієнтів</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label" data-translate="procedures">процедур</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&h=600&fit=crop" alt="Інтер'єр салону Градієнт">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="clientReviews">Відгуки клієнтів</h2>
+                <p data-translate="reviewsSubtitle">Думки наших клієнтів - найкраще підтвердження якості наших послуг</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+    <div class="testimonial-header">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=80&h=80&fit=crop&crop=face" alt="Анна Петренко">
+        <div class="testimonial-info">
+            <div class="testimonial-name">Анна Петренко</div>
+            <div class="testimonial-position">Директор модного дому</div>
+        </div>
+    </div>
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">Градієнт - це не просто салон, це храм краси. Кожне відвідування перетворюється на незабутню подорож у світ розкоші та досконалості.</p>
+</div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Марія Іванова">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Марія Іванова</div>
+                            <div class="testimonial-position">Телеведуча</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Професіоналізм майстрів вражає! Індивідуальний підхід, увага до деталей та результат, який перевершує всі очікування.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" alt="Олена Смирнова">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Олена Смирнова</div>
+                            <div class="testimonial-position">Власниця галереї</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Тут я знайшла не лише красу, але й впевненість у собі. Атмосфера розкоші та турботи робить кожен візит особливим.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Ольга Волкова">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Ольга Волкова</div>
+                            <div class="testimonial-position">Бізнес-леді</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Градієнт став моїм особистим оазисом краси та спокою. Якість послуг на світовому рівні!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="faqTitle">Часті питання</h2>
+                <p data-translate="faqSubtitle">Відповіді на найпопулярніші питання про наші послуги</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(0)">
+                        <span>Які послуги входять до преміум-пакету?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Преміум-пакет включає повний спектр послуг: консультацію спеціаліста, індивідуальну програму догляду, використання ексклюзивної косметики, персональне обслуговування та післяпроцедурний догляд.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(1)">
+                        <span>Чи потрібен попередній запис?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Так, ми працюємо строго за попереднім записом, щоб забезпечити кожному клієнту максимальну увагу та комфорт. Рекомендуємо записуватися за 3-7 днів.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(2)">
+                        <span>Яку косметику ви використовуєте?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ми працюємо лише з преміальними брендами: La Prairie, Valmont, Sisley, Chanel, а також використовуємо ексклюзивні швейцарські та французькі лінії професійної косметики.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(3)">
+                        <span>Чи є програми лояльності?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Так, у нас діє VIP-програма для постійних клієнтів з персональними знижками, пріоритетним записом та ексклюзивними пропозиціями.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(4)">
+                        <span>Чи можна подарувати сертифікат?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Звичайно! Ми пропонуємо подарункові сертифікати будь-якого номіналу в елегантній упаковці. Це ідеальний подарунок для особливих людей.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-translate="readyTransform">Готові до перетворення?</h2>
+                <p data-translate="transformSubtitle">Запишіться на консультацію та відкрийте для себе світ розкішного догляду в салоні Градієнт</p>
+                <button class="btn btn-primary btn-large" onclick="openBookingModal()" data-translate="bookNowCta">Записатися зараз</button>
+                
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <div class="cta-feature-title" data-translate="schedule">Пн-Нд</div>
+                        <div class="cta-feature-text">9:00 - 21:00</div>
+                    </div>
+                    <div class="cta-feature">
+                        <div class="cta-feature-title">VIP</div>
+                        <div class="cta-feature-text" data-translate="vipService">Обслуговування</div>
+                    </div>
+                    <div class="cta-feature">
+                        <div class="cta-feature-title">100%</div>
+                        <div class="cta-feature-text" data-translate="guarantee">Гарантія якості</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- Updated footer logo to use GR -->
+                    <div class="gr-logo-footer">
+                        <span class="gr-text-footer">GR</span>
+                    </div>
+                    <p data-translate="footerDesc">Салон краси преміум класу в самому центрі міста.</p>
+                    <div class="social-links">
+                        <!-- Replaced emojis with SVG icons -->
+                        <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-translate="services">Послуги</h3>
+                    <ul>
+                        <li>SPA процедури</li>
+                        <li>Косметологія</li>
+                        <li>Масаж</li>
+                        <li>Догляд за волоссям</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-translate="contact">Контакти</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <!-- Replaced emojis with SVG icons -->
+                            <i data-lucide="phone" class="contact-icon"></i>
+                            <div>
+                                <div>+38 (044) 123-45-67</div>
+                                <div class="contact-hours">Щодня 9:00-21:00</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail" class="contact-icon"></i>
+                            <span>info@gradient-salon.ua</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="map-pin" class="contact-icon"></i>
+                            <div>
+                                <div>вул. Хрещатик, 15</div>
+                                <div>Київ, 01001</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-translate="copyright">&copy; 2025 Салон краси Градієнт. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('serviceModal')">&times;</button>
+            <div class="modal-body">
+                <img id="serviceModalImage" src="/placeholder.svg" alt="" class="modal-image">
+                <h3 id="serviceModalTitle"></h3>
+                <div class="service-modal-info">
+                    <span id="serviceModalPrice" class="price"></span>
+                    <span id="serviceModalDuration"></span>
+                </div>
+                <p id="serviceModalDescription"></p>
+                <button class="btn btn-primary" onclick="closeModal('serviceModal'); openBookingModal()" data-translate="bookProcedure">
+                    Записатися на процедуру
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('bookingModal')">&times;</button>
+            <div class="modal-body">
+                <h3 data-translate="bookingTitle">Записатися на процедуру</h3>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label data-translate="name">Ім'я</label>
+                        <input type="text" placeholder="Введіть ваше ім'я" data-translate-placeholder="enterName" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="phone">Телефон</label>
+                        <input type="tel" placeholder="+38 (0__) ___-__-__" data-translate-placeholder="phoneFormat" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="service">Послуга</label>
+                        <select required>
+                            <option value="" data-translate="selectService">Оберіть послугу</option>
+                            <option value="spa">Люкс SPA Ритуали</option>
+                            <option value="cosmetology">Преміум Косметологія</option>
+                            <option value="massage">Авторський Масаж</option>
+                            <option value="hair">Елітний Hair-стайлінг</option>
+                            <option value="nails">Nail Art Преміум</option>
+                            <option value="brows">Брови & Вії VIP</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="dateTime">Дата та час</label>
+                        <input type="datetime-local" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="comment">Коментар</label>
+                        <textarea rows="4" placeholder="Додаткові побажання або коментарі" data-translate-placeholder="commentPlaceholder"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="confirmBooking">Підтвердити запис</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Initialize Lucide icons after page load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
